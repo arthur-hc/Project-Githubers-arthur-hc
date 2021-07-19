@@ -11,6 +11,14 @@ class Home extends Component {
       query: '',
     }
   }
+  handleTitle = ({ target, type }) => {
+    if(type === "mouseover") {
+      target.className = 'title-mouseover';
+      return target.innerHTML = 'Users and Repos';
+    }
+    target.className = 'title-initial';
+    target.innerHTML = 'GitHubers';
+  }
   handleChange = ({target}) => {
     const { clean } = this.props;
     clean();
@@ -34,10 +42,10 @@ class Home extends Component {
     return (  
       <div className="home-body">
         <img src="https://img.icons8.com/material-outlined/180/ffffff/github.png" alt="GitHub"/>
-        <h1>GitHubers</h1>
+        <h1 className="title-initial" onMouseOver={(e) => this.handleTitle(e)} onMouseLeave={ (e) => this.handleTitle(e) }>GitHubers</h1>
         <div className="search-div">
           <label htmlFor="query">
-            <input type="text" name="query" id="query" onChange={(e) => this.handleChange(e)}/>
+            <input type="text" name="query" id="query" placeholder="user" onChange={(e) => this.handleChange(e)}/>
           </label>
           <button className="search-icon" onClick={ () => this.searchUser(query) }>
             <img src="https://img.icons8.com/ios/23/ffffff/search--v1.png" alt="search-icon"/>

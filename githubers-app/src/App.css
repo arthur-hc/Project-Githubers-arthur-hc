@@ -281,3 +281,20 @@ h1 {
   margin-bottom: 2px;
   margin-right: 14px;
 }
+
+.title-initial {
+  transition: 1s;
+  color: white;
+}
+
+.title-mouseover {
+  transition: 1s;
+  color: #4B8EDB;
+  margin-left: 40px;
+}
+
+::placeholder {
+  color: #646b7571;
+  display: flex;
+  font-size: 18px;
+}
